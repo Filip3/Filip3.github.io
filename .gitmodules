@@ -1,0 +1,21 @@
+[submodule "themes/loveit"]
+	path = themes/loveit
+	url = https://github.com/dillonzq/LoveIt
+[submodule "themes/basic"]
+	path = themes/basic
+	url = https://github.com/rhazdon/hugo-theme-hello-friend-ng
+[submodule "themes/hello-friend-ng"]
+	path = themes/hello-friend-ng
+	url = https://github.com/rhazdon/hugo-theme-hello-friend-ng
+[submodule "themes/hello-friend"]
+	path = themes/hello-friend
+	url = https://github.com/panr/hugo-theme-hello-friend.git
+[submodule "themes/npq-hugo"]
+	path = themes/npq-hugo
+	url = https://github.com/saadnpq/npq-hugo
+[submodule "themes/hugo-casper3"]
+	path = themes/hugo-casper3
+	url = https://github.com/jonathanjanssens/hugo-casper3
+[submodule "themes/casper3"]
+	path = themes/casper3
+	url = https://github.com/jonathanjanssens/hugo-casper3

@@ -1,3 +1,44 @@
-baseURL = "http://example.org/"
+baseURL = "/"
 languageCode = "en-us"
-title = "My Site"
+paginate     = 10
+
+title = "Malenko"
+theme = "casper3"
+
+[params]
+  author = "Malenko"
+  description = ".NET focused, proponent of DevOps, DDD learner, functional with F# noob."
+  keywords = "Malenko C# DevOps CI CD DDD DomainDrivenDevelopment blog"
+  useAvatar = true
+  microBlogSection = "posts"
+  displayMicroBlog = true
+  displayRecent = true
+  recentMax = 4
+  mail = "fmalenko@gmail.com"
+  logo = "/images/avatar.png"
+  github = "https://github.com/Filip3"
+  twitter = "https://twitter.com/filipmalenko"
+  stackoverflow = "https://stackoverflow.com/users/3910333/malenko"
+  
+
+[menu]
+  [[menu.main]]
+    name = "github"
+    pre = "<i class=\"fab fa-github fa-ms\"></i>"
+    url = "https://github.com/Filip3"
+    weight = -6 
+  [[menu.main]]
+    name = "stackoverflow"
+    pre = "<i class=\"fab fa-xing fa-ms\"></i>"
+    url = "https://stackoverflow.com/users/3910333/malenko"
+    weight = -5 
+  [[menu.main]]
+    name = "linkedin"
+    pre = "<i class=\"fab fa-linkedin fa-ms\"></i>"
+    url = "www.linkedin.com/in/filipmalenko"
+    weight = -4
+  [[menu.main]]
+    name = "xing"
+    pre = "<i class=\"fab fa-xing fa-ms\"></i>"
+    url = "https://www.xing.com/profile/Filip_Malenko"
+    weight = -3 
