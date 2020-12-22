@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DevOps on Malenko</title>
+    <link>/categories/devops/</link>
+    <description>Recent content in DevOps on Malenko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Conduct a Fresh Environment Setup</title>
+      <link>/posts/conduct-a-fresh-environment-setup/</link>
+      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/conduct-a-fresh-environment-setup/</guid>
+      <description>Conduct a Fresh Environment Setup Intro Long ranting following. Please feel free to skip at your own choice.
+Why? Why not just install everything and be done with it. Just do whatever you need and want, set up your environment on a whim without any consequences. Well, that is a good question, and an answer would be that I decided to learn a new technology that would help me in my everyday work life.</description>
+    </item>
+    
+  </channel>
+</rss>
