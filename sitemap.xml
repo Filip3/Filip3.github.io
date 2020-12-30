@@ -13,17 +13,17 @@
   </url>
   
   <url>
-    <loc>/posts/conduct-a-fresh-environment-setup/</loc>
-    <lastmod>2020-12-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/devops/</loc>
     <lastmod>2020-12-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2020-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/conduct-a-fresh-environment-setup/</loc>
     <lastmod>2020-12-22T00:00:00+00:00</lastmod>
   </url>
   
