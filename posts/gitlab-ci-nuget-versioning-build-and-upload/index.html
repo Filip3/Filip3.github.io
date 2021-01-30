@@ -56,7 +56,7 @@
                 
                     
                     <section class="post-full-tags">
-                        <a href="/tags/gitlabci">GitLabCI</a>
+                        <a href="/tags/ci/cd">CI/CD</a>
                     </section>
                 
 
@@ -86,7 +86,7 @@
                                 <h4 class="author-name">Filip</h4>
                             
                             <div class="byline-meta-content">
-                                <time class="byline-meta-date" datetime="2021-121-01">25 January 2021</time>
+                                <time class="byline-meta-date" datetime="2021-121-01">30 January 2021</time>
                                 <span class="byline-reading-time"><span class="bull">&bull;</span> 5 min read</span>
                             </div>
                         </section>
@@ -105,13 +105,13 @@
 
             <section class="post-full-content">
                 <div class="post-content">
-                    <h1 id="nuget-version-restore-build-pack-and-upload">NuGet Version, Restore, Build, Pack and Upload</h1>
-<p><!-- raw HTML omitted -->Photo by <!-- raw HTML omitted -->Mika Baumeister<!-- raw HTML omitted --> on <!-- raw HTML omitted -->Unsplash<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<h6 id="_why-would-i-go-through-this-tedious-process-to-create-this-small-nuget-of-maybe-gold-maybe-silver-maybe-just-some-invaluable-thing_"><em>Why would I go through this tedious process to create this small NuGet of maybe gold, maybe silver, maybe just some invaluable thing.</em></h6>
+                    <h6 id="_why-would-i-go-through-this-tedious-process-to-create-this-small-nuget-of-maybe-gold-maybe-silver-maybe-just-some-invaluable-thing_"><em>Why would I go through this tedious process to create this small NuGet of maybe gold, maybe silver, maybe just some invaluable thing.</em></h6>
 <p>Unless I try I wouldn&rsquo;t know. And that&rsquo;s how I start each time when I see I am repeating tasks.</p>
 <p>As you type your day away, you turn around and see a small simple chunk of code that you think, hey, this guy here, he would be a handful in other places than just this lonely solution here. And Wham(yes just like the band), you decide to package it. But what good does it do, if you cannot easily share this package? And you decide to upload it to your package repository. But hey, what about the open-source project that you want to reuse the same functionality, and what about sharing it with other pals. Then you decide to upload it to a shared package repository.</p>
 <p>Finally, you seem a bit relaxed and satisfied with your ingenious idea&hellip;And out of nowhere, you notice an issue within the package, nothing that will rain down hell on you, but something that you consider could be better handled. And you decide to create a new version, but hey now, will I do this each time manually, will I version, restore, build, pack and upload this new version of my package each time? Well, why not just teach it a lesson and wrap it in a nice little bow, and send it on its merry way.</p>
 <p>So let&rsquo;s now get into the more technical details.</p>
+<p><!-- raw HTML omitted -->Photo by <!-- raw HTML omitted -->Mika Baumeister<!-- raw HTML omitted --> on <!-- raw HTML omitted -->Unsplash<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="nuget-version-restore-build-pack-and-upload">NuGet Version, Restore, Build, Pack and Upload</h1>
 <h2 id="lets-break-it-down-into-smaller-steps">Let&rsquo;s break it down into smaller steps</h2>
 <p>This workflow will be shown with an example that can be used quite easily with any CI/CD tool. But in this example here I will be showing it with GitLab CI. The tools that will are used will be GitLab CI, Docker, GitVersion, .NET, and last but not least a package repository of your own choice.</p>
 <p>With keeping up the naming conventions of GitLab CI this will be broken down to <em>stages</em>:</p>
@@ -163,7 +163,7 @@ So decide what fits your use case best, and choose the image accordingly.</p>
     
     <article class="read-next-card">
         <header class="read-next-card-header">
-            <h3><span>More in</span> <a href="/tags/gitlabci">GitLabCI</a></h3>
+            <h3><span>More in</span> <a href="/tags/ci/cd">CI/CD</a></h3>
         </header>
         <div class="read-next-card-content">
             <ul>
