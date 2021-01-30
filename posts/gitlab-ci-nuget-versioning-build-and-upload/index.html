@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+    <title>Automating NuGet Version, Restore, Build, Pack and Upload · Malenko</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    <link rel="stylesheet" href="/style.main.min.5ea2f07be7e07e221a7112a3095b89d049b96c48b831f16f1015bf2d95d914e5.css" />
+    <link rel="shortcut icon" href="./images/avatar.ico">
+</head>
+<body class=" post-template ">
+
+    <div class="site-wrapper">
+
+<header class="site-header"><div class="outer site-nav-main">
+    <div class="inner"><nav class="site-nav">
+    <div class="site-nav-left">
+        
+            <a class="site-nav-logo" href="/"><img src="/images/avatar.png" alt="Malenko" /></a>
+        
+        
+        <div class="site-nav-content">
+            <ul class="nav" role="menu">
+                
+                <li class="nav-home" role="menuitem"><a href="https://github.com/Filip3">github</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://stackoverflow.com/users/3910333/malenko">stackoverflow</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://www.linkedin.com/in/filipmalenko">linkedin</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://www.xing.com/profile/Filip_Malenko">xing</a></li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+</div>
+</div></header>
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post  no-image ">
+
+            <header class="post-full-header">
+
+                
+                    
+                    <section class="post-full-tags">
+                        <a href="/tags/gitlabci">GitLabCI</a>
+                    </section>
+                
+
+                <h1 class="post-full-title">Automating NuGet Version, Restore, Build, Pack and Upload</h1>
+
+                
+
+                <div class="post-full-byline">
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+    <li class="author-list-item">
+        <div class="author-card">
+            <div class="author-profile-image"><img src="../../images/avatar.png" alt="Malenko"></div>
+            <div class="author-info">
+                <div class="author-info">
+                    <h2>Filip</h2>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="author-avatar author-profile-image"><img src="../../images/avatar.png" alt="Malenko"></a>
+    </li>
+</ul>
+
+                        <section class="post-full-byline-meta">
+                            
+                                <h4 class="author-name">Filip</h4>
+                            
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2021-121-01">25 January 2021</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 5 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            
+            <figure class="post-full-image">
+                <img src="../../images/mika-baumeister-WOn90Iui_08-unsplash.jpg" alt="Automating NuGet Version, Restore, Build, Pack and Upload" />
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <h1 id="nuget-version-restore-build-pack-and-upload">NuGet Version, Restore, Build, Pack and Upload</h1>
+<p><!-- raw HTML omitted -->Photo by <!-- raw HTML omitted -->Mika Baumeister<!-- raw HTML omitted --> on <!-- raw HTML omitted -->Unsplash<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h6 id="_why-would-i-go-through-this-tedious-process-to-create-this-small-nuget-of-maybe-gold-maybe-silver-maybe-just-some-invaluable-thing_"><em>Why would I go through this tedious process to create this small NuGet of maybe gold, maybe silver, maybe just some invaluable thing.</em></h6>
+<p>Unless I try I wouldn&rsquo;t know. And that&rsquo;s how I start each time when I see I am repeating tasks.</p>
+<p>As you type your day away, you turn around and see a small simple chunk of code that you think, hey, this guy here, he would be a handful in other places than just this lonely solution here. And Wham(yes just like the band), you decide to package it. But what good does it do, if you cannot easily share this package? And you decide to upload it to your package repository. But hey, what about the open-source project that you want to reuse the same functionality, and what about sharing it with other pals. Then you decide to upload it to a shared package repository.</p>
+<p>Finally, you seem a bit relaxed and satisfied with your ingenious idea&hellip;And out of nowhere, you notice an issue within the package, nothing that will rain down hell on you, but something that you consider could be better handled. And you decide to create a new version, but hey now, will I do this each time manually, will I version, restore, build, pack and upload this new version of my package each time? Well, why not just teach it a lesson and wrap it in a nice little bow, and send it on its merry way.</p>
+<p>So let&rsquo;s now get into the more technical details.</p>
+<h2 id="lets-break-it-down-into-smaller-steps">Let&rsquo;s break it down into smaller steps</h2>
+<p>This workflow will be shown with an example that can be used quite easily with any CI/CD tool. But in this example here I will be showing it with GitLab CI. The tools that will are used will be GitLab CI, Docker, GitVersion, .NET, and last but not least a package repository of your own choice.</p>
+<p>With keeping up the naming conventions of GitLab CI this will be broken down to <em>stages</em>:</p>
+<ul>
+<li>Versioning the library.</li>
+<li>Restoring, Building, and Packing the package.</li>
+<li>Uploading the package to a package repository.</li>
+</ul>
+<p>The application of the same process using Jenkins, Azure DevOps, BitBucket, GitHub Actions, and many others should be a simple process of following its tools conventions.</p>
+<h3 id="versioning">Versioning</h3>
+<p>Versioning is a topic that can be tackled in so many ways, by so many tools or scripted solutions. For the purpose of this, I will be using <a href="https://github.com/GitTools/GitVersion">GitVersion</a>. A simple tool that does what it says but not in so many words. It is an open-source tool, that actually manages to provide a way to version your solutions, with the simplicity of using your Git History. By tracking your history, it can generate versions based on tags, branches, commits, Pull Requests or Merge Requests, commit messages, and much more. We will not be deep-diving into this right now, so I will stop here. But simply said the command following will be generating a list of environmental variables, that can be injected into your CI tool of choice. And for our purpose, we will use the default generation NuGet version variable.</p>
+<p>Certainly using this tool can be done in a number of ways, for this you would either need to add your tool on your own image or use one of the <a href="https://hub.docker.com/r/gittools/gitversion/">many available GitVersion images</a> on docker hub, that can be used out of the box.
+Such as the Alpine Linux one, which is quite lightweight.
+And for our purposes we will be using:
+<a href="https://hub.docker.com/layers/gittools/gitversion/5.5.1-linux-alpine.3.10-x64-netcoreapp3.1/images/sha256-db5ab820db1d015694eb766c43e85dcde2c7b08ac0149c7babe34e813a733033?context=explore">gittools/gitversion/5.5.1-linux-alpine.3.10-x64-netcoreapp3.1</a></p>
+<p>Simple said this tool can be executed in a one-line command for the stage Version:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gitversion -output buildserver -showvariable NugetVersionV2
+</code></pre></div><h3 id="pack-it-which-includes-restore-build-and-packaging-the-little-guy">Pack it! (Which includes Restore, Build, and packaging the little guy.)</h3>
+<p>This is not something new that we need to get into, but .NET in all its wisdom has provided us with a myriad of ways to create a NuGet package.</p>
+<p>And one of those that we are going to use is:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">dotnet pack -p<span style="color:#960050;background-color:#1e0010">:</span>IncludeSymbols=true /properties<span style="color:#960050;background-color:#1e0010">:</span>configuration=Release /p:Version=$GitVersion_NuGetVersionV2
+</code></pre></div><p>And let&rsquo;s not forget for this we need to have <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack">.NET Core</a> installed, or we can use a docker image that will give us the possibility to execute this command. And again, .NET has provided us a list of possibilities on that front also. So choose what you see fit. 
+In this case, I am using one of the following docker images:
+<a href="https://hub.docker.com/_/microsoft-dotnet-sdk">/dotnet/core/sdk</a>
+So decide what fits your use case best, and choose the image accordingly.</p>
+<h3 id="and-finally-getting-rid-of-it">And finally getting rid of it</h3>
+<p>And by this, I mean put it safely in a repository for easy access from anywhere.</p>
+<p>And again this stage can be executed in a number of ways. But the one I went with is:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">dotnet nuget push */bin/Release/*.nupkg -k $NUGET_KEY -s $INTERNAL_REPOSITORY_ADDRESS/repository/$NUGET_REPOSITORY/
+</code></pre></div><p>This final step can be executed on the same container as with the <em>Pack It!</em> stage. Because the command is part of .NET and it uploads a package to a NuGet type of repository.</p>
+<h3 id="and-finally-the-wrap-up">And finally the wrap-up.</h3>
+<p>We can finish this off by providing a complete example of the Script:
+<script type="application/javascript" src="https://gist.github.com/Filip3/c8a11a02bf5fecdbb5a7b1be484c047c.js"></script>
+</p>
+<!-- raw HTML omitted -->
+<p>A good approach would be if you pack this <em>.yml</em> file in a common location, for reuse of all your NuGet package repositories. By doing this, and bypassing only some variables in it, you maintain one location for the script and easy reuse.</p>
+<p>And as the last sign off message, I would suggest checking this link out, <a href="https://www.theothertim.com/images-during-the-ci-run/">The Other Tim - Harden your Gitlab CI pipeline with DevOps Principals</a>. Where <em>The Other Tim</em> shows a good way to maintain your docker images, and provide a couple of layers of safety instead of depending on Docker Hub(and its newly introduced pull limit).</p>
+
+                </div>
+            </section>
+
+        </article>
+
+    </div>
+</main>
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+    
+    <article class="read-next-card">
+        <header class="read-next-card-header">
+            <h3><span>More in</span> <a href="/tags/gitlabci">GitLabCI</a></h3>
+        </header>
+        <div class="read-next-card-content">
+            <ul>
+                
+            </ul>
+        </div>
+    </article>
+<article class="post-card post
+ no-image
+ ">
+
+        
+    
+        <div class="post-card-content">
+    
+            <a class="post-card-content-link" href="/posts/conduct-a-fresh-environment-setup/">
+    
+                <header class="post-card-header">
+                    
+                        
+                        <div class="post-card-primary-tag">Ansible</div>
+                    
+
+                    <h2 class="post-card-title">Orchestrating a Fresh Environment Setup</h2>
+                </header>
+    
+                <section class="post-card-excerpt">
+                    <p>Orchestrating a Fresh Environment The following section will contain some ranting. Please feel free to skip at your own choice.
+Why? Why not just install everything and be done with it. Just do whatever you want and need, set up your environment on a whim without any consequences. Well, that is a good question, and an answer would be that I decided to learn a new approach(or tool) that would help me in my everyday work life.</p>
+                </section>
+    
+            </a>
+
+            <footer class="post-card-meta">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <div class="author-name-tooltip">Filip</div>
+                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../images/avatar.png" alt="Malenko"></a>
+                        </li>
+                    </ul>
+                    <div class="post-card-byline-content">
+                        <span>Filip</span>
+                        <span class="post-card-byline-date"><time datetime="2020-1212-12">22 December 2020</time>
+                            <span class="bull">&bull;</span> 6 min read</span>
+                    </div>
+                </footer>
+    
+        </div>
+
+</article>
+    
+
+            
+        </div>
+    </div>
+</aside>
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="/">Malenko</a> &copy; 2021</section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    <a href="https://twitter.com/filipmalenko" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://github.com/Filip3" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

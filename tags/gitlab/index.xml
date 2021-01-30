@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DevOps on Malenko</title>
-    <link>/categories/devops/</link>
-    <description>Recent content in DevOps on Malenko</description>
+    <title>GitLab on Malenko</title>
+    <link>/tags/gitlab/</link>
+    <description>Recent content in GitLab on Malenko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automating NuGet Version, Restore, Build, Pack and Upload</title>
       <link>/posts/gitlab-ci-nuget-versioning-build-and-upload/</link>
@@ -15,16 +15,6 @@
       <guid>/posts/gitlab-ci-nuget-versioning-build-and-upload/</guid>
       <description>NuGet Version, Restore, Build, Pack and Upload Photo by Mika Baumeisteron UnsplashWhy would I go through this tedious process to create this small NuGet of maybe gold, maybe silver, maybe just some invaluable thing. Unless I try I wouldn&amp;rsquo;t know. And that&amp;rsquo;s how I start each time when I see I am repeating tasks.
 As you type your day away, you turn around and see a small simple chunk of code that you think, hey, this guy here, he would be a handful in other places than just this lonely solution here.</description>
-    </item>
-    
-    <item>
-      <title>Orchestrating a Fresh Environment Setup</title>
-      <link>/posts/conduct-a-fresh-environment-setup/</link>
-      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/conduct-a-fresh-environment-setup/</guid>
-      <description>Orchestrating a Fresh Environment The following section will contain some ranting. Please feel free to skip at your own choice.
-Why? Why not just install everything and be done with it. Just do whatever you want and need, set up your environment on a whim without any consequences. Well, that is a good question, and an answer would be that I decided to learn a new approach(or tool) that would help me in my everyday work life.</description>
     </item>
     
   </channel>

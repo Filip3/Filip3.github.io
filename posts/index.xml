@@ -6,14 +6,24 @@
     <description>Recent content in Posts on Malenko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automating NuGet Version, Restore, Build, Pack and Upload</title>
+      <link>/posts/gitlab-ci-nuget-versioning-build-and-upload/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/gitlab-ci-nuget-versioning-build-and-upload/</guid>
+      <description>NuGet Version, Restore, Build, Pack and Upload Photo by Mika Baumeisteron UnsplashWhy would I go through this tedious process to create this small NuGet of maybe gold, maybe silver, maybe just some invaluable thing. Unless I try I wouldn&amp;rsquo;t know. And that&amp;rsquo;s how I start each time when I see I am repeating tasks.
+As you type your day away, you turn around and see a small simple chunk of code that you think, hey, this guy here, he would be a handful in other places than just this lonely solution here.</description>
+    </item>
+    
     <item>
       <title>Orchestrating a Fresh Environment Setup</title>
       <link>/posts/conduct-a-fresh-environment-setup/</link>
       <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>/posts/conduct-a-fresh-environment-setup/</guid>
-      <description>Orchestrating a Fresh Environment Setup The following section will contain some ranting. Please feel free to skip at your own choice.
+      <description>Orchestrating a Fresh Environment The following section will contain some ranting. Please feel free to skip at your own choice.
 Why? Why not just install everything and be done with it. Just do whatever you want and need, set up your environment on a whim without any consequences. Well, that is a good question, and an answer would be that I decided to learn a new approach(or tool) that would help me in my everyday work life.</description>
     </item>
     
