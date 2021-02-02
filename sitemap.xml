@@ -8,16 +8,6 @@
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/devops/</loc>
-    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/gitlab/</loc>
     <lastmod>2021-01-30T00:00:00+00:00</lastmod>
   </url>
@@ -53,6 +43,16 @@
   </url>
   
   <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/devops/</loc>
+    <lastmod>2020-12-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/posts/conduct-a-fresh-environment-setup/</loc>
     <lastmod>2020-12-22T00:00:00+00:00</lastmod>
   </url>
@@ -79,10 +79,6 @@
   
   <url>
     <loc>/tags/ci/cd/</loc>
-  </url>
-  
-  <url>
-    <loc>/categories/ci/cd/</loc>
   </url>
   
 </urlset>
