@@ -13,7 +13,8 @@
 
     
     <link rel="stylesheet" href="/style.main.min.5ea2f07be7e07e221a7112a3095b89d049b96c48b831f16f1015bf2d95d914e5.css" />
-    <link rel="shortcut icon" href="./images/avatar.ico">
+    <link rel="stylesheet" href="/css/syntax_native.css" />
+    <link rel="shortcut icon" href="/images/avatar.ico" />
 </head>
 <body class=" post-template ">
 
@@ -70,14 +71,14 @@
                         <ul class="author-list">
     <li class="author-list-item">
         <div class="author-card">
-            <div class="author-profile-image"><img src="../../images/avatar.png" alt="Malenko"></div>
+            <div class="author-profile-image"><img src="/images/avatar.png" alt="Malenko"></div>
             <div class="author-info">
                 <div class="author-info">
                     <h2>Filip</h2>
                 </div>
             </div>
         </div>
-        <a href="#" class="author-avatar author-profile-image"><img src="../../images/avatar.png" alt="Malenko"></a>
+        <a href="#" class="author-avatar author-profile-image"><img src="/images/avatar.png" alt="Malenko"></a>
     </li>
 </ul>
 
@@ -99,7 +100,7 @@
 
             
             <figure class="post-full-image">
-                <img src="../../images/mika-baumeister-WOn90Iui_08-unsplash.jpg" alt="Automating NuGet Version, Restore, Build, Pack and Upload" />
+                <img src="/images/mika-baumeister-WOn90Iui_08-unsplash.jpg" alt="Automating NuGet Version, Restore, Build, Pack and Upload" />
             </figure>
             
 
@@ -128,51 +129,21 @@ Such as the Alpine Linux one, which is quite lightweight.
 And for our purposes we will be using:
 <a href="https://hub.docker.com/layers/gittools/gitversion/5.5.1-linux-alpine.3.10-x64-netcoreapp3.1/images/sha256-db5ab820db1d015694eb766c43e85dcde2c7b08ac0149c7babe34e813a733033?context=explore">gittools/gitversion/5.5.1-linux-alpine.3.10-x64-netcoreapp3.1</a></p>
 <p>Simple said this tool can be executed in a one-line command for the stage Version:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html">$&gt; gitversion -output buildserver -showvariable NugetVersionV2</code></pre></td></tr></table>
-</div>
-</div>
-<h3 id="pack-it-which-includes-restore-build-and-packaging-the-little-guy">Pack it! (Which includes Restore, Build, and packaging the little guy.)</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$&gt; gitversion -output buildserver -showvariable NugetVersionV2
+</code></pre></div><h3 id="pack-it-which-includes-restore-build-and-packaging-the-little-guy">Pack it! (Which includes Restore, Build, and packaging the little guy.)</h3>
 <p>This is not something new that we need to get into, but .NET in all its wisdom has provided us with a myriad of ways to create a NuGet package.</p>
 <p>And one of those that we are going to use is:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html">$&gt; dotnet pack -p:IncludeSymbols = true /properties : configuration=Release /p:Version=$GitVersion_NuGetVersionV2
-</code></pre></td></tr></table>
-</div>
-</div><p>And let&rsquo;s not forget for this we need to have <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack">.NET Core</a> installed, or we can use a docker image that will give us the possibility to execute this command. And again, .NET has provided us a list of possibilities on that front also. So choose what you see fit. 
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$&gt; dotnet pack -p:IncludeSymbols<span class="o">=</span><span class="nb">true</span> /properties:configuration<span class="o">=</span>Release /p:Version<span class="o">=</span><span class="nv">$GitVersion_NuGetVersionV2</span>
+</code></pre></div><p>And let&rsquo;s not forget for this we need to have <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack">.NET Core</a> installed, or we can use a docker image that will give us the possibility to execute this command. And again, .NET has provided us a list of possibilities on that front also. So choose what you see fit. 
 In this case, I am using one of the following docker images:
 <a href="https://hub.docker.com/_/microsoft-dotnet-sdk">/dotnet/core/sdk</a>
 So decide what fits your use case best, and choose the image accordingly.</p>
 <h3 id="and-finally-getting-rid-of-it">And finally getting rid of it</h3>
 <p>And by this, I mean put it safely in a repository for easy access from anywhere.</p>
 <p>And again this stage can be executed in a number of ways. But the one I went with is:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="p">$&gt;</span> <span class="n">dotnet</span> <span class="n">nuget</span> <span class="n">push</span> <span class="p">*/</span><span class="n">bin</span><span class="p">/</span><span class="n">Release</span><span class="p">/*.</span><span class="n">nupkg</span> <span class="n">-k</span> <span class="nv">$NUGET_KEY</span> <span class="n">-s</span> <span class="nv">$INTERNAL_REPOSITORY_ADDRESS</span><span class="p">/</span><span class="n">repository</span><span class="p">/</span><span class="nv">$NUGET_REPOSITORY</span><span class="p">/</span>
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">bash
-$&gt; dotnet nuget push */bin/Release/*.nupkg -k $NUGET_KEY -s $INTERNAL_REPOSITORY_ADDRESS/repository/$NUGET_REPOSITORY/
-</code></pre></td></tr></table>
-</div>
-</div><p>This final step can be executed on the same container as with the <em>Pack It!</em> stage. Because the command is part of .NET and it uploads a package to a NuGet type of repository.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$&gt; dotnet nuget push */bin/Release/*.nupkg -k <span class="nv">$NUGET_KEY</span> -s <span class="nv">$INTERNAL_REPOSITORY_ADDRESS</span>/repository/<span class="nv">$NUGET_REPOSITORY</span>/
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$&gt; dotnet nuget push */bin/Release/*.nupkg -k <span class="nv">$NUGET_KEY</span> -s <span class="nv">$INTERNAL_REPOSITORY_ADDRESS</span>/repository/<span class="nv">$NUGET_REPOSITORY</span>/
+</code></pre></div><p>This final step can be executed on the same container as with the <em>Pack It!</em> stage. Because the command is part of .NET and it uploads a package to a NuGet type of repository.</p>
 <h3 id="and-finally-the-wrap-up">And finally the wrap-up.</h3>
 <p>We can finish this off by providing a complete example of the Script:
 <script type="application/javascript" src="https://gist.github.com/Filip3/c8a11a02bf5fecdbb5a7b1be484c047c.js"></script>
@@ -232,7 +203,7 @@ Why? Why not just install everything and be done with it. Just do whatever you w
                     <ul class="author-list">
                         <li class="author-list-item">
                             <div class="author-name-tooltip">Filip</div>
-                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="../../images/avatar.png" alt="Malenko"></a>
+                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="/images/avatar.png" alt="Malenko"></a>
                         </li>
                     </ul>
                     <div class="post-card-byline-content">
