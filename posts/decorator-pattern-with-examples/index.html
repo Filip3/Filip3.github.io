@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+    <title>Implementing the Decorator Pattern · Malenko</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    <link rel="stylesheet" href="/style.main.min.5ea2f07be7e07e221a7112a3095b89d049b96c48b831f16f1015bf2d95d914e5.css" />
+    <link rel="stylesheet" href="/css/syntax_native.css" />
+    <link rel="shortcut icon" href="/images/avatar.ico" />
+</head>
+<body class=" post-template ">
+
+    <div class="site-wrapper">
+
+<header class="site-header"><div class="outer site-nav-main">
+    <div class="inner"><nav class="site-nav">
+    <div class="site-nav-left">
+        
+            <a class="site-nav-logo" href="/"><img src="/images/avatar.png" alt="Malenko" /></a>
+        
+        
+        <div class="site-nav-content">
+            <ul class="nav" role="menu">
+                
+                <li class="nav-home" role="menuitem"><a href="https://github.com/Filip3">github</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://stackoverflow.com/users/3910333/malenko">stackoverflow</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://www.linkedin.com/in/filipmalenko">linkedin</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://www.xing.com/profile/Filip_Malenko">xing</a></li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+</div>
+</div></header>
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post  no-image ">
+
+            <header class="post-full-header">
+
+                
+                    
+                    <section class="post-full-tags">
+                        <a href="/tags/design-patterns">Design Patterns</a>
+                    </section>
+                
+
+                <h1 class="post-full-title">Implementing the Decorator Pattern</h1>
+
+                
+
+                <div class="post-full-byline">
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+    <li class="author-list-item">
+        <div class="author-card">
+            <div class="author-profile-image"><img src="/images/avatar.png" alt="Malenko"></div>
+            <div class="author-info">
+                <div class="author-info">
+                    <h2>Filip</h2>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="author-avatar author-profile-image"><img src="/images/avatar.png" alt="Malenko"></a>
+    </li>
+</ul>
+
+                        <section class="post-full-byline-meta">
+                            
+                                <h4 class="author-name">Filip</h4>
+                            
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2021-123-03">30 March 2021</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 4 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            
+            <figure class="post-full-image">
+                <img src="/images/omar-flores-lQT_bOWtysE-unsplash.jpg" alt="Implementing the Decorator Pattern" />
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <h6 id="_already-done-and-overdone-but-never-enough-if-you-want-to-give-it-another-try_"><em>Already done and overdone. But never enough if you want to give it another try.</em></h6>
+<p>Consider a useful pattern that has been out there for some time, and it dared to never show its true form to you. Well, this has happened and it is still happening. We see it all around. And these patterns can be tricky to understand, to implement, to decide when to be applied and when not to be applied. They can oversimplify or even overcomplicate your solution. As already pointed by the title the topic here is the decorator pattern.</p>
+<p>So, let’s just give it another shot.</p>
+<p><!-- raw HTML omitted -->Photo by <!-- raw HTML omitted -->Omar Flores<!-- raw HTML omitted --> on <!-- raw HTML omitted -->Unsplash<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="decorator-pattern">Decorator Pattern</h1>
+<h2 id="so-what-is-the-decorator-pattern">So what is the Decorator Pattern?</h2>
+<p>Consider having an already existing implementation of an entity. An implementation that you do not want to modify or introduce changes to, that do not involve the domain itself. This can be a temporary promotion, which could involve changing the data going in and out from an entity. This can also be a technical dependency such as a database retry pattern, change tracking, some additional functionality outside of the scope of the entity. This approach works best when an already implemented, tested, and documented implementation, which you intend to avoid changing it. But as always there are initially unplanned changes that you need to apply. And this is where the pattern comes in handy. And let´s consider a simple change tracking addition to our entity. Your users would need the possibility to see what has been changed and by who, so that there is some accountability to the system changes.</p>
+<p>And how can this be seen as? So let´s just simply imagine it visually.</p>
+<p><img src="/images/decorator-pattern-overview.jpg" alt="Decorator Pattern Overview"></p>
+<p>What simply this pattern does, is provide us a way to extend the behavior of the class in question. It simply wraps the original class around a wrapper. By doing this we can change the behavior of an individual entity, in comparison with some other approaches such as inheritance, where you modify all the instances of the class in question.</p>
+<p>The good thing about the pattern is that it abides by some of the principles we software engineers tend to follow, which try to keep the solution simple(sometimes may be complicated, but the initial goal is to keep it simple):</p>
+<ul>
+<li>Adhere to the SRP (Single Responsibility Principle)</li>
+<li>Adhere to OCP (Open Closed Principle)</li>
+</ul>
+<h2 id="implementation">Implementation</h2>
+<p>In the implementation we will use a basic example, avoiding generics or any additional approach that can be quite useful but it might obscure the example The goal is to get an understanding of the Decorator Pattern, avoiding any overhead. But let&rsquo;s keep it in mind, that all of the additional approaches such as generics are very useful. And play its role in each implementation when required, but for the clarity of the example here we will avoid any overhead.</p>
+<h3 id="pre-implementation">Pre Implementation</h3>
+<p>Let´s first consider the existing implementation. Before the decorator has been applied.</p>
+<script type="application/javascript" src="https://gist.github.com/Filip3/f4a255617b93118032bd11639ef6c67c.js"></script>
+
+<!-- raw HTML omitted -->
+<p>The product implementation consists of a skeleton structure, just for this purpose.</p>
+<h3 id="implementing-the-decorator-pattern">Implementing the Decorator Pattern</h3>
+<p>We start by adding an interface for the already created <code>ProductService.cs</code>. And right after follows the implementation of the decorator class. The decorator class implements the same interface as the class we intend to decorate.</p>
+<p><img src="/images/decorator-pattern-service.jpg" alt="Decorator Pattern with Service"></p>
+<p>What happens and can be seen here is that the implementation can be seen wrapping around the concrete product service class. By introducing the decorator, we avoid changing the concrete implementation and abide by the OCP principle.</p>
+<script type="application/javascript" src="https://gist.github.com/Filip3/e4ae69fa9292428e7d3a7d928601c666.js"></script>
+
+<!-- raw HTML omitted -->
+<h3 id="decorator-pattern-implementation-with-cqrs">Decorator Pattern Implementation with CQRS</h3>
+<p>And as an additional example, would be useful to see how the Decorator Pattern can be used with CQRS (Command Query Responsibility Segregation). To avoid getting sidetracked, we won&rsquo;t be talking much about it. But there are a lot of great posts and documentation out there. This approach involves separating all commands and queries, as the name would suggest. Some documentation and references can be found on the <a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/apply-simplified-microservice-cqrs-ddd-patterns">Microsoft Documentation</a>.</p>
+<script type="application/javascript" src="https://gist.github.com/Filip3/bac12aa0cf46d234b4cba13498f5af49.js"></script>
+
+<!-- raw HTML omitted -->
+<p>A quick visual overview of how the components interact between each other.</p>
+<p><img src="/images/decorator-pattern-command-handler.jpg" alt="Decorator Pattern with Command Handler"></p>
+
+                </div>
+            </section>
+
+        </article>
+
+    </div>
+</main>
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+    
+    <article class="read-next-card">
+        <header class="read-next-card-header">
+            <h3><span>More in</span> <a href="/tags/design-patterns">Design Patterns</a></h3>
+        </header>
+        <div class="read-next-card-content">
+            <ul>
+                
+            </ul>
+        </div>
+    </article>
+<article class="post-card post
+
+
+ ">
+
+        
+            <a class="post-card-image-link" href="/posts/automating-nuget-package-creation/">
+                <img class="post-card-image"src="/images/mika-baumeister-WOn90Iui_08-unsplash.jpg" alt="Automating NuGet Version, Restore, Build, Pack and Upload"/>
+            </a>
+        
+    
+        <div class="post-card-content">
+    
+            <a class="post-card-content-link" href="/posts/automating-nuget-package-creation/">
+    
+                <header class="post-card-header">
+                    
+                        
+                        <div class="post-card-primary-tag">CI/CD</div>
+                    
+
+                    <h2 class="post-card-title">Automating NuGet Version, Restore, Build, Pack and Upload</h2>
+                </header>
+    
+                <section class="post-card-excerpt">
+                    <p>Why would I go through this tedious process to create this small NuGet of maybe gold, maybe silver, maybe just some invaluable thing. Unless I try I wouldn&rsquo;t know. And that&rsquo;s how I start each time when I see I am repeating tasks.
+As you type your day away, you turn around and see a small simple chunk of code that you think, hey, this guy here, he would be a handful in other places than just this lonely solution here.</p>
+                </section>
+    
+            </a>
+
+            <footer class="post-card-meta">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <div class="author-name-tooltip">Filip</div>
+                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="/images/avatar.png" alt="Malenko"></a>
+                        </li>
+                    </ul>
+                    <div class="post-card-byline-content">
+                        <span>Filip</span>
+                        <span class="post-card-byline-date"><time datetime="2021-121-01">30 January 2021</time>
+                            <span class="bull">&bull;</span> 5 min read</span>
+                    </div>
+                </footer>
+    
+        </div>
+
+</article>
+    
+
+            
+        </div>
+    </div>
+</aside>
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="/">Malenko</a> &copy; 2021</section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    <a href="https://twitter.com/filipmalenko" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://github.com/Filip3" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

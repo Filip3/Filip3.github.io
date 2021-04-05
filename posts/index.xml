@@ -6,13 +6,22 @@
     <description>Recent content in Posts on Malenko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Implementing the Decorator Pattern</title>
+      <link>/posts/decorator-pattern-with-examples/</link>
+      <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/decorator-pattern-with-examples/</guid>
+      <description>Already done and overdone. But never enough if you want to give it another try. Consider a useful pattern that has been out there for some time, and it dared to never show its true form to you. Well, this has happened and it is still happening. We see it all around. And these patterns can be tricky to understand, to implement, to decide when to be applied and when not to be applied.</description>
+    </item>
+    
     <item>
       <title>Automating NuGet Version, Restore, Build, Pack and Upload</title>
-      <link>/posts/gitlab-ci-nuget-versioning-build-and-upload/</link>
+      <link>/posts/automating-nuget-package-creation/</link>
       <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>/posts/gitlab-ci-nuget-versioning-build-and-upload/</guid>
+      <guid>/posts/automating-nuget-package-creation/</guid>
       <description>Why would I go through this tedious process to create this small NuGet of maybe gold, maybe silver, maybe just some invaluable thing. Unless I try I wouldn&amp;rsquo;t know. And that&amp;rsquo;s how I start each time when I see I am repeating tasks.
 As you type your day away, you turn around and see a small simple chunk of code that you think, hey, this guy here, he would be a handful in other places than just this lonely solution here.</description>
     </item>

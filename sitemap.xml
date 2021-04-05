@@ -3,7 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/posts/gitlab-ci-nuget-versioning-build-and-upload/</loc>
+    <loc>/tags/decorator/</loc>
+    <lastmod>2021-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/design-patterns/</loc>
+    <lastmod>2021-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/decorator-pattern-with-examples/</loc>
+    <lastmod>2021-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2021-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2021-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/structural-pattern/</loc>
+    <lastmod>2021-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2021-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/automating-nuget-package-creation/</loc>
     <lastmod>2021-01-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -18,22 +53,7 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/nuget/</loc>
-    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2021-01-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2021-01-30T00:00:00+00:00</lastmod>
   </url>
   
