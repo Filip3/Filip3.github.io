@@ -17,5 +17,15 @@
 As you type your day away, you turn around and see a small simple chunk of code that you think, hey, this guy here, he would be a handful in other places than just this lonely solution here.</description>
     </item>
     
+    <item>
+      <title>Automating NuGet Version, Restore, Build, Pack and Upload</title>
+      <link>/posts/gitlab-ci-nuget-versioning-build-and-upload/</link>
+      <pubDate>Sat, 30 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/gitlab-ci-nuget-versioning-build-and-upload/</guid>
+      <description>Why would I go through this tedious process to create this small NuGet of maybe gold, maybe silver, maybe just some invaluable thing. Unless I try I wouldn&amp;rsquo;t know. And that&amp;rsquo;s how I start each time when I see I am repeating tasks.
+As you type your day away, you turn around and see a small simple chunk of code that you think, hey, this guy here, he would be a handful in other places than just this lonely solution here.</description>
+    </item>
+    
   </channel>
 </rss>
