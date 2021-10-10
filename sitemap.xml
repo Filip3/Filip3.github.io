@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>/posts/implementing-the-decorator-pattern-copy/</loc>
+    <lastmod>2021-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/posts/implementing-the-decorator-pattern/</loc>
     <lastmod>2021-03-30T00:00:00+00:00</lastmod>
   </url>
