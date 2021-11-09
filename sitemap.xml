@@ -3,7 +3,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/categories/c#/</loc>
+    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/c#-9.0/</loc>
+    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/functional/</loc>
+    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/records/</loc>
+    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/why-records-c-sharp/</loc>
+    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/decorator/</loc>
+    <lastmod>2021-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/decorator/</loc>
     <lastmod>2021-03-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -13,22 +63,12 @@
   </url>
   
   <url>
-    <loc>/posts/implementing-the-decorator-pattern-copy/</loc>
+    <loc>/categories/design-patterns/</loc>
     <lastmod>2021-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/implementing-the-decorator-pattern/</loc>
-    <lastmod>2021-03-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2021-03-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
+    <loc>/posts/implementing-the-decorator-pattern-copy-copy/</loc>
     <lastmod>2021-03-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -38,7 +78,7 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>/categories/structural-pattern/</loc>
     <lastmod>2021-03-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -64,11 +104,6 @@
   
   <url>
     <loc>/tags/ansible/</loc>
-    <lastmod>2020-12-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
     <lastmod>2020-12-22T00:00:00+00:00</lastmod>
   </url>
   
