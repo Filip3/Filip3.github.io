@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 30 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Implementing the Decorator Pattern</title>
-      <link>/posts/implementing-the-decorator-pattern-copy-copy/</link>
+      <link>/posts/implementing-the-decorator-pattern/</link>
       <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/posts/implementing-the-decorator-pattern-copy-copy/</guid>
+      <guid>/posts/implementing-the-decorator-pattern/</guid>
       <description>Already done and overdone. But never enough if you want to give it another try. Consider a useful pattern that has been out there for some time, and it dared to never show its true form to you. Well, this has happened and it is still happening. We see it all around. And these patterns can be tricky to understand, to implement, to decide when to be applied and when not to be applied.</description>
     </item>
     

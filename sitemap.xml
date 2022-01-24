@@ -4,17 +4,62 @@
   
   <url>
     <loc>/categories/c#/</loc>
-    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/c#-9.0/</loc>
-    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/decoupling/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/di/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/di/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/infrastructure/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ioptions/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/so-many-ioptions/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -23,22 +68,7 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/records/</loc>
-    <lastmod>2021-11-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2021-11-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -68,7 +98,7 @@
   </url>
   
   <url>
-    <loc>/posts/implementing-the-decorator-pattern-copy-copy/</loc>
+    <loc>/posts/implementing-the-decorator-pattern/</loc>
     <lastmod>2021-03-30T00:00:00+00:00</lastmod>
   </url>
   

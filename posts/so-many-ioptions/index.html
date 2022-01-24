@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+    <title>So Many IOptions · Malenko</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    
+    <link rel="stylesheet" href="/style.main.min.5ea2f07be7e07e221a7112a3095b89d049b96c48b831f16f1015bf2d95d914e5.css" />
+    <link rel="stylesheet" href="/css/syntax_native.css" />
+    <link rel="shortcut icon" href="/images/avatar.ico" />
+</head>
+<body class=" post-template ">
+
+    <div class="site-wrapper">
+
+<header class="site-header"><div class="outer site-nav-main">
+    <div class="inner"><nav class="site-nav">
+    <div class="site-nav-left">
+        
+            <a class="site-nav-logo" href="/"><img src="/images/avatar.png" alt="Malenko" /></a>
+        
+        
+        <div class="site-nav-content">
+            <ul class="nav" role="menu">
+                
+                <li class="nav-home" role="menuitem"><a href="https://github.com/Filip3">github</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://stackoverflow.com/users/3910333/malenko">stackoverflow</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://www.linkedin.com/in/filipmalenko">linkedin</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://www.xing.com/profile/Filip_Malenko">xing</a></li>
+                
+                <li class="nav-home" role="menuitem"><a href="https://twitter.com/filipmalenko">twitter</a></li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+</div>
+</div></header>
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post  no-image ">
+
+            <header class="post-full-header">
+
+                
+                    
+                    <section class="post-full-tags">
+                        <a href="/tags/ioptions">IOptions</a>
+                    </section>
+                
+
+                <h1 class="post-full-title">So Many IOptions</h1>
+
+                
+
+                <div class="post-full-byline">
+                    <section class="post-full-byline-content">
+
+                        <ul class="author-list">
+    <li class="author-list-item">
+        <div class="author-card">
+            <div class="author-profile-image"><img src="/images/avatar.png" alt="Malenko"></div>
+            <div class="author-info">
+                <div class="author-info">
+                    <h2>Filip</h2>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="author-avatar author-profile-image"><img src="/images/avatar.png" alt="Malenko"></a>
+    </li>
+</ul>
+
+                        <section class="post-full-byline-meta">
+                            
+                                <h4 class="author-name">Filip</h4>
+                            
+                            <div class="byline-meta-content">
+                                <time class="byline-meta-date" datetime="2022-121-01">24 January 2022</time>
+                                <span class="byline-reading-time"><span class="bull">&bull;</span> 4 min read</span>
+                            </div>
+                        </section>
+
+                    </section>
+
+
+                </div>
+            </header>
+
+            
+            <figure class="post-full-image">
+                <img src="/images/eugenio-mazzone-6ywyo2qtaZ8-unsplash.jpg" alt="So Many IOptions" />
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <h6 id="_the-bigger-the-options-toolbelt-the-more-power-we-have_"><em>The bigger the options toolbelt, the more power we have.</em></h6>
+<p>What is one of our main goals when working on a solution? Isn&rsquo;t it to provide simplicity, decoupling and separation to a certain degree, that it will not overcomplicate our solution but keep the code clean enough to not be sullied by all sorts of overhead requirements. And this is always a balance that we are trying to achieve. This enables us to focus on solving domain problems, instead of us looking at code that can be convoluted with all sorts of none domain-related structural requirements.</p>
+<p>With the ability to extract configuration and validation of the same configuration, we reduce the coupling in all layers that require it. We can encapsulate its validation we provide and always have a valid state of our configuration at any point of our solution. Why do we want to appreciate this little nugget of simplicity that it can bring us? Well, it does one thing amazingly it separates configuration concerns. And by doing this we chip away another thing of the block that enables us to have a cleaner problem-solving space.</p>
+<p><strong>&hellip;Sometimes science is more art than science&hellip;.</strong></p>
+<p><em>Rick and Morty</em></p>
+<p>Photo by <a href="https://unsplash.com/photos/6ywyo2qtaZ8">Eugenio Mazzone</a> on <a href="https://unsplash.com/">Unsplash</a></p>
+<h1 id="so-many-ioptions">So Many IOptions</h1>
+<h2 id="how-does-ioptions-help-in-the-separation-of-configuration-concerns">How does IOptions help in the separation of configuration concerns</h2>
+<p>What we quite often need is to provide configuration information on a solution-wide level. This configuration can be either an appsetting.json, environmental variables, or any other configuration. And this information can be basically loaded into a strongly typed class. These classes can be bound to the key-value pairs of our configuration. By using IOptions we can insulate our core problem-solving space, by separating concerns, and at the same time provide injectable loose coupling of the way we introduce this information. The interface does not support the reading of data once the application has been started and is registered as a singleton, which in the end can be injected into any lifetime.
+As an example, we can use database setting information that is something we use quite often:</p>
+<script type="application/javascript" src="https://gist.github.com/Filip3/0acc38e1497885e499bd81525f96645e.js"></script>
+
+<!-- raw HTML omitted -->
+<p>In this class, we have a simple database settings related section of the <strong>appsettings.json</strong> class. What we need to keep in mind is that this class needs to be with a public parameterless constructor and contain public read-write properties(which are used to be bound).</p>
+<p>This would bind to an <strong>appsetting.json</strong> settings as such for example:</p>
+<script type="application/javascript" src="https://gist.github.com/Filip3/c42d7e1d3b5ba8882ad0781f78c4f605.js"></script>
+
+<!-- raw HTML omitted -->
+<p>What we need to consider is that the properties that don&rsquo;t have public properties, will not be bound. At the same time sections or keys that are not in the class or have a different name, will not also bind. Although this might be obvious, we still must consider it.</p>
+<p>For us to use this class in our configuration we would need to bind it in the <strong>ConfigurationServices</strong> method in the <strong>Startup.cs</strong> class.</p>
+<script type="application/javascript" src="https://gist.github.com/Filip3/42f4f2e2eb3dd0ca60909f6f0f381de2.js"></script>
+
+<!-- raw HTML omitted -->
+<p>Once the DatabaseSettings configuration has been registered and an instance has been created, we can use said configuration in our solution as in the following example:</p>
+<script type="application/javascript" src="https://gist.github.com/Filip3/6aa98c3380818eef3192b761737c77ea.js"></script>
+
+<!-- raw HTML omitted -->
+<p>This as in the example, we can see that can be injected anywhere in the solution and used based on per need.</p>
+<p>Something that can be beneficial if you have multiple sources of configuration and a hierarchical decision from where these values are retrieved can be packed into the configuration class. Or at the same time, default values can be defined.</p>
+<h2 id="extra-use-of-ioptions">Extra Use of IOptions</h2>
+<p>A neat way that this can be used, is with Feature Flags. Where feature flags by themselves can be used in quite a lot of ways. Just some of those can be when introducing new functionality and having the option to switch it on or off based on need, or in case of extracting old functionality into a new implementation. This will enable us to have the option to switch step by step safely into the new implementation with careful use of the strangler pattern(same as any pattern, the strangler pattern can be used in multiple different ways). What needs to be considered here, is that IOptions is a singleton registered and created as an instance on application startup. In these cases we would need to be able to change based on changes on those flags, in this case, this configuration strongly typed classes can be bound with IOptionsMonitor or IOptionsSnapshots. Each of those brings different value, based on the need on when our application would need to react upon, either configuration changes or once per request changes.</p>
+<p>At the same time, we do have the option of providing validation of the said configuration information provided:</p>
+<script type="application/javascript" src="https://gist.github.com/Filip3/4679f4954e6e10cd1edd4ff44ab65ca9.js"></script>
+
+<!-- raw HTML omitted -->
+<h2 id="wrap-up">Wrap Up</h2>
+<p>All in all, this strongly typed way of using configuration is a great addition. It provides a way for us to safely process and validate the configuration, and at the same time separate the way we load it and validate it outside of the remaining part of the problem space, where it leaves the space clean from configuration concerns. Once you are aware of the approach it brings a bit more clarity on how configuration information can be used and provided to our applications.</p>
+
+                </div>
+            </section>
+
+        </article>
+
+    </div>
+</main>
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+    
+    <article class="read-next-card">
+        <header class="read-next-card-header">
+            <h3><span>More in</span> <a href="/tags/ioptions">IOptions</a></h3>
+        </header>
+        <div class="read-next-card-content">
+            <ul>
+                
+            </ul>
+        </div>
+    </article>
+<article class="post-card post
+
+
+ ">
+
+        
+            <a class="post-card-image-link" href="/posts/why-records-c-sharp/">
+                <img class="post-card-image"src="/images/samuel-regan-asante-5j7nQv-jaVM-unsplash.jpg" alt="Why Not Records"/>
+            </a>
+        
+    
+        <div class="post-card-content">
+    
+            <a class="post-card-content-link" href="/posts/why-records-c-sharp/">
+    
+                <header class="post-card-header">
+                    
+                        
+                        <div class="post-card-primary-tag">Records</div>
+                    
+
+                    <h2 class="post-card-title">Why Not Records</h2>
+                </header>
+    
+                <section class="post-card-excerpt">
+                    <p>Glimpsing into the functional world from within the old world Why does this intrigue me and it should probably maybe spark something in you. Well C# has been around for ages, as F# and other functional languages and approaches. But it was never so much in demand as it is today. Or it might just be my current perspective and my exposure to my technical social circle. What this means, simplification of the way we present the world we see in our codebase.</p>
+                </section>
+    
+            </a>
+
+            <footer class="post-card-meta">
+                    <ul class="author-list">
+                        <li class="author-list-item">
+                            <div class="author-name-tooltip">Filip</div>
+                            <a href="https://test.com" class="static-avatar author-profile-image"><img src="/images/avatar.png" alt="Malenko"></a>
+                        </li>
+                    </ul>
+                    <div class="post-card-byline-content">
+                        <span>Filip</span>
+                        <span class="post-card-byline-date"><time datetime="2021-1211-11">4 November 2021</time>
+                            <span class="bull">&bull;</span> 3 min read</span>
+                    </div>
+                </footer>
+    
+        </div>
+
+</article>
+    
+
+            
+        </div>
+    </div>
+</aside>
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="/">Malenko</a> &copy; 2022</section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    <a href="https://twitter.com/filipmalenko" target="_blank" rel="noopener">Twitter</a>
+                    <a href="https://github.com/Filip3" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
